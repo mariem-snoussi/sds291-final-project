@@ -5,6 +5,9 @@ author: "Maya Crandall-Malcolm"
 author: "Mariem Snoussi"
 date: "`r Sys.Date()`"
 output: openintro::lab_report
+          toc: true
+          toc_depth: 2
+          number_sections: true
 ---
 
 ```{r load-packages, message=FALSE}
