@@ -1,0 +1,13 @@
+---
+title: "Fat Bear 2020-2021"
+author: "Laura Mora"
+author: "Maya Crandall-Malcolm"
+author: "Mariem Snoussi"
+date: "`r Sys.Date()`"
+output: openintro::lab_report
+---
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(openintro)
+```
