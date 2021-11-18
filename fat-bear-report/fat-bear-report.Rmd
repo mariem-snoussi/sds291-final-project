@@ -13,6 +13,7 @@ output: openintro::lab_report
 library(tidyverse)
 library(openintro)
 ```
+test
 
 ## Purpose
 Predict winners of fat bear week.
