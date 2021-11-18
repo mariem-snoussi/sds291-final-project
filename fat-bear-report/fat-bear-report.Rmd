@@ -5,12 +5,30 @@ author: "Maya Crandall-Malcolm"
 author: "Mariem Snoussi"
 date: "`r Sys.Date()`"
 output: openintro::lab_report
-          toc: true
-          toc_depth: 2
-          number_sections: true
+              toc: true
+            theme: united
 ---
 
 ```{r load-packages, message=FALSE}
 library(tidyverse)
 library(openintro)
 ```
+
+## Purpose
+Predict winners of fat bear week.
+Understand what factors are important in winning fat bear week
+
+# Hypothesis 1
+.
+# Hypothesis 2
+.
+## Data
+.
+# Population
+.
+# Outcome Variable
+.
+# Explanatory Variable
+.
+# Exploratory Visualizations
+.
