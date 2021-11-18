@@ -13,7 +13,13 @@ output: openintro::lab_report
 library(tidyverse)
 library(openintro)
 ```
-test
+
+
+```{r}
+bears<-read.csv("FullBearData.csv")
+survey20<-read.csv("Survey2020.csv")
+survey21<-read.csv("Survey2021.csv")
+```
 
 ## Purpose
 Predict winners of fat bear week.
@@ -33,3 +39,4 @@ Understand what factors are important in winning fat bear week
 .
 # Exploratory Visualizations
 .
+
