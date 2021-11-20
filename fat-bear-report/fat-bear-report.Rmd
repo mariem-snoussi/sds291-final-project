@@ -12,6 +12,8 @@ output: openintro::lab_report
 ```{r load-packages, message=FALSE}
 library(tidyverse)
 library(openintro)
+library(mosaic)
+library(modeest)
 ```
 
 
@@ -21,6 +23,21 @@ survey20<-read.csv("Survey2020.csv")
 survey21<-read.csv("Survey2021.csv")
 ```
 
+```{r}
+# 2020 Bear 909 results
+nineonine<-filter(survey20, BearNumber=="909")
+n909_fur<-mlv(nineonine$FurColor, method="mfv")
+n909_before<-mlv(nineonine$SizeBefore, method="mfv")
+n909_after<-mlv(nineonine$SizeAfter, method="mfv")
+n909_angle<-mean(nineonine$Angle)
+
+# 2020 Bear 856 results
+b856<-filter(survey20, BearNumber=="856")
+b856_fur<-mlv(b856$FurColor, method="mfv")
+b856_before<-mlv(b856$SizeBefore, method="mfv")
+b856_after<-mlv(b856$SizeAfter, method="mfv")
+b856_angle<-mean(b856$Angle)
+```
 ## Purpose
 Predict winners of fat bear week.
 Understand what factors are important in winning fat bear week
@@ -32,11 +49,12 @@ Understand what factors are important in winning fat bear week
 ## Data
 .
 # Population
-.
+
 # Outcome Variable
 .
 # Explanatory Variable
-.
+
+
 # Exploratory Visualizations
 .
 
