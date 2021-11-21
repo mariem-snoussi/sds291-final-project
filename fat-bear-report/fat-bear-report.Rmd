@@ -26,18 +26,82 @@ survey21<-read.csv("Survey2021.csv")
 ```{r}
 # 2020 Bear 909 results
 nineonine<-filter(survey20, BearNumber=="909")
-n909_fur<-mlv(nineonine$FurColor, method="mfv")
-n909_before<-mlv(nineonine$SizeBefore, method="mfv")
-n909_after<-mlv(nineonine$SizeAfter, method="mfv")
-n909_angle<-mean(nineonine$Angle)
+mlv(nineonine$FurColor, method="mfv")
+mlv(nineonine$SizeBefore, method="mfv")
+mlv(nineonine$SizeAfter, method="mfv")
+mean(nineonine$Angle)
 
 # 2020 Bear 856 results
 b856<-filter(survey20, BearNumber=="856")
-b856_fur<-mlv(b856$FurColor, method="mfv")
-b856_before<-mlv(b856$SizeBefore, method="mfv")
-b856_after<-mlv(b856$SizeAfter, method="mfv")
-b856_angle<-mean(b856$Angle)
+mlv(b856$FurColor, method="mfv")
+mlv(b856$SizeBefore, method="mfv")
+mlv(b856$SizeAfter, method="mfv")
+mean(b856$Angle)
+
+#2020 bear 812
+b812<-filter(survey20, BearNumber=="812")
+mlv(b812$FurColor, method="mfv")
+mlv(b812$SizeBefore, method="mfv")
+mlv(b812$SizeAfter, method="mfv")
+mean(b812$Angle)
+
+# 2020 bear 747
+b747<-filter(survey20, BearNumber=="747")
+mlv(b747$FurColor, method="mfv")
+mlv(b747$SizeBefore, method="mfv")
+mlv(b747$SizeAfter, method="mfv")
+mean(b747$Angle)
+
+# 2020 bear 719
+b719<-filter(survey20, BearNumber=="719")
+mlv(b719$FurColor, method="mfv")
+mlv(b719$SizeBefore, method="mfv")
+mlv(b719$SizeAfter, method="mfv")
+mean(b719$Angle)
+
+# 2020 bear 480
+b480<-filter(survey20, BearNumber=="480")
+mlv(b480$FurColor, method="mfv")
+mlv(b480$SizeBefore, method="mfv")
+mlv(b480$SizeAfter, method="mfv")
+mean(b480$Angle)
+
+# 2020 bear 435
+b435<-filter(survey20, BearNumber=="435")
+mlv(b435$FurColor, method="mfv")
+mlv(b435$SizeBefore, method="mfv")
+mlv(b435$SizeAfter, method="mfv")
+mean(b435$Angle)
+
+# 2020 bear 402
+b402<-filter(survey20, BearNumber=="402")
+mlv(b402$FurColor, method="mfv")
+mlv(b402$SizeBefore, method="mfv")
+mlv(b402$SizeAfter, method="mfv")
+mean(b402$Angle)
+
+# 2020 bear 151
+b151<-filter(survey20, BearNumber=="151")
+mlv(b151$FurColor, method="mfv")
+mlv(b151$SizeBefore, method="mfv")
+mlv(b151$SizeAfter, method="mfv")
+mean(b151$Angle)
+
+# 2020 bear 128
+b128<-filter(survey20, BearNumber=="128")
+mlv(b128$FurColor, method="mfv")
+mlv(b128$SizeBefore, method="mfv")
+mlv(b128$SizeAfter, method="mfv")
+mean(b128$Angle)
+
+# 2020 bear 32
+b32<-filter(survey20, BearNumber=="32")
+mlv(b32$FurColor, method="mfv")
+mlv(b32$SizeBefore, method="mfv")
+mlv(b32$SizeAfter, method="mfv")
+mean(b32$Angle)
 ```
+
 ## Purpose
 Predict winners of fat bear week.
 Understand what factors are important in winning fat bear week
