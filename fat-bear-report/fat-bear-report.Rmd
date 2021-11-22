@@ -102,6 +102,94 @@ mlv(b32$SizeAfter, method="mfv")
 mean(b32$Angle)
 ```
 
+```{r}
+### 2021 survey results
+# 812
+b812<-filter(survey21, BearNumber=="812")
+mlv(b812$FurColor, method="mfv")
+mlv(b812$SizeBefore, method="mfv")
+mlv(b812$SizeAfter, method="mfv")
+mean(b812$Angle)
+
+# 747
+b747<-filter(survey21, BearNumber=="747")
+mlv(b747$FurColor, method="mfv")
+mlv(b747$SizeBefore, method="mfv")
+mlv(b747$SizeAfter, method="mfv")
+mean(b747$Angle)
+
+# 634
+b634<-filter(survey21, BearNumber=="634")
+mlv(b634$FurColor, method="mfv")
+mlv(b634$SizeBefore, method="mfv")
+mlv(b634$SizeAfter, method="mfv")
+mean(b634$Angle)
+
+# 503
+b503<-filter(survey21, BearNumber=="503")
+mlv(b503$FurColor, method="mfv")
+mlv(b503$SizeBefore, method="mfv")
+mlv(b503$SizeAfter, method="mfv")
+mean(b503$Angle)
+
+# 480
+b480<-filter(survey21, BearNumber=="480")
+mlv(b480$FurColor, method="mfv")
+mlv(b480$SizeBefore, method="mfv")
+mlv(b480$SizeAfter, method="mfv")
+mean(b480$Angle)
+
+# 435 
+b435<-filter(survey21, BearNumber=="435")
+mlv(b435$FurColor, method="mfv")
+mlv(b435$SizeBefore, method="mfv")
+mlv(b435$SizeAfter, method="mfv")
+mean(b435$Angle)
+
+# 402
+b402<-filter(survey21, BearNumber=="402")
+mlv(b402$FurColor, method="mfv")
+mlv(b402$SizeBefore, method="mfv")
+mlv(b402$SizeAfter, method="mfv")
+mean(b402$Angle)
+
+# 151
+b151<-filter(survey21, BearNumber=="151")
+mlv(b151$FurColor, method="mfv")
+mlv(b151$SizeBefore, method="mfv")
+mlv(b151$SizeAfter, method="mfv")
+mean(b151$Angle)
+
+# 132
+b132<-filter(survey21, BearNumber=="132")
+mlv(b132$FurColor, method="mfv")
+mlv(b132$SizeBefore, method="mfv")
+mlv(b132$SizeAfter, method="mfv")
+mean(b132$Angle)
+
+# 131
+b131<-filter(survey21, BearNumber=="131")
+mlv(b131$FurColor, method="mfv")
+mlv(b131$SizeBefore, method="mfv")
+mlv(b131$SizeAfter, method="mfv")
+mean(b131$Angle)
+
+# 32
+b32<-filter(survey21, BearNumber=="32")
+mlv(b32$FurColor, method="mfv")
+mlv(b32$SizeBefore, method="mfv")
+mlv(b32$SizeAfter, method="mfv")
+mean(b32$Angle)
+
+# 128
+b128<-filter(survey21, BearNumber=="128")
+mlv(b128$FurColor, method="mfv")
+mlv(b128$SizeBefore, method="mfv")
+mlv(b128$SizeAfter, method="mfv")
+mean(b128$Angle)
+```
+
+
 ## Purpose
 Predict winners of fat bear week.
 Understand what factors are important in winning fat bear week

@@ -1,26 +1,26 @@
 BearNumber,Name,Year,Round,Opponent,Number of Votes,RoundWin,RoundWinBinary,CompetitionWin,CompWinBinary,NumPreviousWins,Sex,ParkSize,ParkAgeCategory,ParkAge,ParkFur,SurveyFur,SurveyBefore,SurveyAfter,SurveyAngle
-32,Chunk,2021,2,151,11038,N,0,N,0,0,M,Large,Adult,16,Medium-brown to dark brown,,,,
-128,Grazer,2021,1,435,52145,Y,1,N,0,0,F,Medium to large,Adult,16,Blond to light-blond,,,,
-128,Grazer,2021,2,132,32251,N,0,N,0,0,F,Medium to large,Adult,16,Blond to light-blond,,,,
-131,,2021,1,812,17706,N,0,N,0,0,F,Small,Subadult,3,,,,,
-132c,132's cub,2021,2,128,40968,Y,1,N,0,0,,,Cub,1,,,,,
-132c,132's cub,2021,3,151,31399,N,0,N,0,0,,,Cub,1,,,,,
-151,Walker,2021,1,634,64451,Y,1,N,0,0,M,Medium,Young adult,14,Brown,,,,
-151,Walker,2021,2,32,60621,Y,1,N,0,0,M,Medium,Young adult,14,Brown,,,,
-151,Walker,2021,3,132,224496,Y,1,N,0,0,M,Medium,Young adult,14,Brown,,,,
-151,Walker,2021,4,480,44834,N,0,N,0,0,M,Medium,Young adult,14,Brown,,,,
-402,,2021,1,480,14026,N,0,N,0,0,F,Large,Adult,23,Dark blonde or brown,,,,
-435,Holly,2021,1,128,25420,N,0,N,0,1,F,Medium,Adult,22,Light blonde to toasted marshmallow???,,,,
-480,Otis,2021,1,402,71227,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,,,,
-480,Otis,2021,2,747,34000,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,,,,
-480,Otis,2021,3,812,44581,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,,,,
-480,Otis,2021,4,151,51230,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,,,,
-503,,2021,2,812,22447,N,0,N,0,0,M,,Young adult,9,Brown ,,,,
-634,Popeye,2021,1,151,11820,N,0,N,0,0,M,Medium-large,Adult,22,Brown,,,,
-747,,2021,2,480,22532,N,0,N,0,1,M,Very large,Adult,20,Medium-brown to dark brown,,,,
-812,,2021,1,131,68092,Y,1,N,0,0,M,,Adult,6,,,,,
-812,,2021,2,503,31728,Y,1,N,0,0,M,,Adult,6,,,,,
-812,,2021,3,480,18451,N,0,N,0,0,M,,Adult,6,,,,,
+32,Chunk,2021,2,151,11038,N,0,N,0,0,M,Large,Adult,16,Medium-brown to dark brown,Dark brown,Large,Medium,4.882
+128,Grazer,2021,1,435,52145,Y,1,N,0,0,F,Medium to large,Adult,16,Blond to light-blond,Blond,Medium,Large,3.353
+128,Grazer,2021,2,132,32251,N,0,N,0,0,F,Medium to large,Adult,16,Blond to light-blond,Blond,Medium,Large,3.353
+131,,2021,1,812,17706,N,0,N,0,0,F,Small,Subadult,3,,Blond,Small,Medium,3.176
+132c,132's cub,2021,2,128,40968,Y,1,N,0,0,,,Cub,1,,Brown,Small,Small,4.706
+132c,132's cub,2021,3,151,31399,N,0,N,0,0,,,Cub,1,,Brown,Small,Small,4.706
+151,Walker,2021,1,634,64451,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,Very large,4.235
+151,Walker,2021,2,32,60621,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,Very large,4.235
+151,Walker,2021,3,132,224496,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,Very large,4.235
+151,Walker,2021,4,480,44834,N,0,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,Very large,4.235
+402,,2021,1,480,14026,N,0,N,0,0,F,Large,Adult,23,Dark blonde or brown,Brown,Medium,Very large,5.176
+435,Holly,2021,1,128,25420,N,0,N,0,1,F,Medium,Adult,22,Light blonde to toasted marshmallow???,Blond + light brown,Small,Large,3.471
+480,Otis,2021,1,402,71227,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,Large,3.941
+480,Otis,2021,2,747,34000,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,Large,3.941
+480,Otis,2021,3,812,44581,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,Large,3.941
+480,Otis,2021,4,151,51230,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,Large,3.941
+503,,2021,2,812,22447,N,0,N,0,0,M,,Young adult,9,Brown ,Dark brown,Small,Large + Very large,2.941
+634,Popeye,2021,1,151,11820,N,0,N,0,0,M,Medium-large,Adult,22,Brown,Brown,Medium,Very large,2.529
+747,,2021,2,480,22532,N,0,N,0,1,M,Very large,Adult,20,Medium-brown to dark brown,Dark brown,Medium,Very large,5.176
+812,,2021,1,131,68092,Y,1,N,0,0,M,,Adult,6,,Brown,Medium,Large,3.529
+812,,2021,2,503,31728,Y,1,N,0,0,M,,Adult,6,,Brown,Medium,Large,3.529
+812,,2021,3,480,18451,N,0,N,0,0,M,,Adult,6,,Brown,Medium,Large,3.529
 32,Chunk,2020,1,719,59435,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,Very large,5.118
 32,Chunk,2020,2,435,30257,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,Very large,5.118
 32,Chunk,2020,3,128,26622,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,Very large,5.118
