@@ -1,12 +1,10 @@
 ---
-title: "Fat Bear 2020-2021"
-author: "Laura Mora"
-author: "Maya Crandall-Malcolm"
-author: "Mariem Snoussi"
+title: "SDS 291 - Fat Bear 2020-2021"
+author: "Laura Mora, Mariem Snoussi, Maya Crandall-Malcolm"
 date: "`r Sys.Date()`"
-output: openintro::lab_report
-              toc: true
-            theme: united
+output: 
+  pdf_document: 
+    toc: true
 ---
 
 ```{r load-packages, message=FALSE}
@@ -14,6 +12,7 @@ library(tidyverse)
 library(openintro)
 library(mosaic)
 library(modeest)
+library(GGally)
 ```
 
 
@@ -23,7 +22,7 @@ survey20<-read.csv("Survey2020.csv")
 survey21<-read.csv("Survey2021.csv")
 ```
 
-```{r}
+```{r, include=FALSE, eval=FALSE}
 # 2020 Bear 909 results
 nineonine<-filter(survey20, BearNumber=="909")
 mlv(nineonine$FurColor, method="mfv")
@@ -102,7 +101,7 @@ mlv(b32$SizeAfter, method="mfv")
 mean(b32$Angle)
 ```
 
-```{r}
+```{r, include=FALSE, eval=FALSE}
 ### 2021 survey results
 # 812
 b812<-filter(survey21, BearNumber=="812")
@@ -194,14 +193,17 @@ mean(b128$Angle)
 The purpose of this analysis is to evaluate what factors play a major role in the winner of Fat Bear Week. Fat Bear Week is an online single elimination tournament held in Katmai National Park, Alaska. This year it was held from September 29th to October 5th. According to the website, where the voting takes place, who to vote for as the winner is subjective. Some voters may chose to vote based on dramatic change in weight over the year. Other voters might chose to vote based on additional challenges the bears may face in order to gain weight. But in general the idea is to vote for the fattest bear, in the voter's opinion. We predict that the more angled away from the camera the bear is, i.e. the closer the butt of the bear is to the camera, the more votes that bear will receive. We also predict that the probability that a bear will win the second round increases as the number of votes that bear obtains in the first round increases. That is, the likelihood of success, where success is that a particular bear wins in the second round, increases as the number of votes the bear won in the first round increases. We will also explore other variables that might play a role in the who named winner of Fat Bear Week; such as, fur color, change in size, and more. 
 
 ## Data
-.
-# Population
+We plan to use data about the last two years of the Fat Bear Week competition that we compiled ourselves from various sources (Fat Bear Week Voting Page, Katmai Park publications, Katmai Bearcams Fan Wiki). We will at some point link to our dataset. There are many more bears at Katmai National Park than are featured in the Fat Bear Week competition—former park ranger Mike Fitz elaborated on the selection of each year’s competitors, saying, “the bears are typically chosen by the park rangers, based on a variety of factors such as their time of arrival at Brooks River. An early summer arrival at the river ensures that the bear is photographed before and after their weight gain. A compelling storyline is also a driving factor when choosing a contestant. The audience loves to see a veteran bear with skill and resilience, like Otis, competing year after year” (I have a citation, just not sure how we’ll end up formatting them). Although the contest began in 2014, we restricted our investigation to the contests that took place in 2020 and 2021, because contests prior to those years took place on Facebook with the bear whose post received the most “Likes” winning each round, where we have no way to control for bias due to its algorithm. In 2020 and 2021, voting took place on a designated webpage (https://explore.org/fat-bear-week) which guarantees that all respondents saw both bears for each match-up they voted in. 
 
-# Outcome Variable
+Respondent perception of a bear’s size, color, and position in relation to the camera are subjective and vary between respondents. To determine the attributes size (before & after), color, and position for each bear, we conducted two brief surveys (one for each contest year) with human respondents. The survey asked respondents to look at the official before and after photos of the bears from the contests, and report each bear’s size, angle in relation to the camera, and fur color. We used convenience sampling of primarily our friends and family. We obtained the results of the survey for each bear by identifying the most frequent response for the questions related to fur color and size, and took the mean of the responses for angle to the camera.
+
+## Population
+
+## Outcome Variable
 The outcome variable for the first hypothesis is Winning Round 2. It's a binary response and its odds would range between 0 (loss) and 1 (win).
 The outcome variable for the second hypothesis is number of votes obtained in the first round. This is a quantitative variable in the positive Integers. and each vote will count as one unit.
 
-# Explanatory Variable
+## Explanatory Variable
 The explanatory variables are:
 Sex is a binary variable with values "M" for male and "F" for female.
 Color is a categorical variable. It's possible values are "Blond", "Light Brown", "Brown", "dark Brown"
@@ -210,6 +212,17 @@ Names is a binary variable. It will be 0 if the bear does not have a name and 1 
 Number of Votes is a quantitative variable, Each one point increase is equivalent to 1 additional vote towards the bear. 
 
 
-# Exploratory Visualizations
-.
+## Exploratory Visualizations
+```{r}
+bears %>%
+  select(RoundWinBinary, Sex, SurveyFur, SurveyBefore, SurveyAfter, SurveyAngle) %>%
+  ggpairs()
+```
+```{r}
+bears %>%
+  select(CompWinBinary, Round, ParkAge, SurveyFur, SurveyBefore, SurveyAfter, SurveyAngle) %>%
+  ggpairs()
+```
+
+
 
