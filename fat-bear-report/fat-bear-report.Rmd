@@ -198,6 +198,7 @@ We plan to use data about the last two years of the Fat Bear Week competition th
 Respondent perception of a bear’s size, color, and position in relation to the camera are subjective and vary between respondents. To determine the attributes size (before & after), color, and position for each bear, we conducted two brief surveys (one for each contest year) with human respondents. The survey asked respondents to look at the official before and after photos of the bears from the contests, and report each bear’s size, angle in relation to the camera, and fur color. We used convenience sampling of primarily our friends and family. We obtained the results of the survey for each bear by identifying the most frequent response for the questions related to fur color and size, and took the mean of the responses for angle to the camera.
 
 ## Population
+Each row of the dataset is one half of a matchup in the tournament. Each row contains the bear’s designated number, name (if applicable), contest year, round, opponent’s designated number, number of votes received in that matchup, outcome of the matchup, outcome of the whole tournament, number of previous Fat Bear Week wins, sex, age, fur color, summer size, fall size, and angle to the camera. It is our hope that our findings could be applied to predicting the winner of future Fat Bear Week tournaments.
 
 ## Outcome Variable
 The outcome variable for the first hypothesis is Winning Round 2. It's a binary response and its odds would range between 0 (loss) and 1 (win).
