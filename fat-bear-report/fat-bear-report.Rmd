@@ -198,8 +198,16 @@ The purpose of this analysis is to evaluate what factors play a major role in th
 # Population
 
 # Outcome Variable
-.
+The outcome variable for the first hypothesis is Winning Round 2. It's a binary response and its odds would range between 0 (loss) and 1 (win).
+The outcome variable for the second hypothesis is number of votes obtained in the first round. This is a quantitative variable in the positive Integers. and each vote will count as one unit.
+
 # Explanatory Variable
+The explanatory variables are:
+Sex is a binary variable with values "M" for male and "F" for female.
+Color is a categorical variable. It's possible values are "Blond", "Light Brown", "Brown", "dark Brown"
+Age is a quantitative variable. Its unit is years.
+Names is a binary variable. It will be 0 if the bear does not have a name and 1 when they have a name.
+Number of Votes is a quantitative variable, Each one point increase is equivalent to 1 additional vote towards the bear. 
 
 
 # Exploratory Visualizations
