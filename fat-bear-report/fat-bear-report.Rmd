@@ -214,7 +214,7 @@ Number of Votes is a quantitative variable, Each one point increase is equivalen
 
 
 ## Exploratory Visualizations
-A preliminary exploration of our data shows that there is some relationship between winning a round and some of our predictor variables using simple logistic regression. There appears to be positive association between angle to camera and the likelihood of winning a round, bear age and likelihood of winning a round, and number of votes and winning a round.
+A preliminary exploration of our data shows that there is some relationship between winning a round and some of our predictor variables using simple logistic regression. There appears to be positive associations between angle to camera and the likelihood of winning a round, bear age and likelihood of winning a round, and number of votes and winning a round.
 ```{r}
 bears %>%
   select(RoundWinBinary, Sex, SurveyFur, SurveyBefore, SurveyAfter, SurveyAngle) %>%
