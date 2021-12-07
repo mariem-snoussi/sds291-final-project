@@ -2,10 +2,10 @@
 title: "SDS 291 - Fat Bear 2020-2021"
 author: "Laura Mora, Mariem Snoussi, Maya Crandall-Malcolm"
 date: "`r Sys.Date()`"
-output: 
-  pdf_document: 
-    toc: true
-    
+output:
+  pdf_document:
+    toc: yes
+  toc: default
 ---
 
 ```{r load-packages, message=FALSE}
@@ -232,7 +232,7 @@ method.args = list(family = "binomial"), se = 0)
 qplot(x=ParkAge, y=RoundWinBinary, data=bears) + geom_smooth(method="glm", se=FALSE)
 
 qplot(x=Number.of.Votes, y=RoundWinBinary, data=bears) +
-  geom_smooth(method="glm", se=FALSE)
+  geom_smooth(method="glm", method.args = list(family = "binomial"), se=FALSE)
 ```
 
 ```{r}
@@ -245,7 +245,7 @@ bears %>%
 ```{r}
 # logit model for SurveyAngle and Win
 logitAngle <- glm(CompWinBinary ~ SurveyAngle, data = bears, family = binomial)
-summary(logitm)
+summary(logitAngle)
 ```
 
 
