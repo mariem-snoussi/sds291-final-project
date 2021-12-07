@@ -1,45 +1,45 @@
-BearNumber,Name,Year,Round,Opponent,Number of Votes,RoundWin,RoundWinBinary,CompetitionWin,CompWinBinary,NumPreviousWins,Sex,ParkSize,ParkAgeCategory,ParkAge,ParkFur,SurveyFur,SurveyBefore,SurveyAfter,SurveyAngle
-32,Chunk,2021,2,151,11038,N,0,N,0,0,M,Large,Adult,16,Medium-brown to dark brown,Dark brown,Large,Medium,4.882
-128,Grazer,2021,1,435,52145,Y,1,N,0,0,F,Medium to large,Adult,16,Blond to light-blond,Blond,Medium,Large,3.353
-128,Grazer,2021,2,132,32251,N,0,N,0,0,F,Medium to large,Adult,16,Blond to light-blond,Blond,Medium,Large,3.353
-131,,2021,1,812,17706,N,0,N,0,0,F,Small,Subadult,3,,Blond,Small,Medium,3.176
-132c,132's cub,2021,2,128,40968,Y,1,N,0,0,,,Cub,1,,Brown,Small,Small,4.706
-132c,132's cub,2021,3,151,31399,N,0,N,0,0,,,Cub,1,,Brown,Small,Small,4.706
-151,Walker,2021,1,634,64451,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,Very large,4.235
-151,Walker,2021,2,32,60621,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,Very large,4.235
-151,Walker,2021,3,132,224496,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,Very large,4.235
-151,Walker,2021,4,480,44834,N,0,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,Very large,4.235
-402,,2021,1,480,14026,N,0,N,0,0,F,Large,Adult,23,Dark blonde or brown,Brown,Medium,Very large,5.176
-435,Holly,2021,1,128,25420,N,0,N,0,1,F,Medium,Adult,22,Light blonde to toasted marshmallow???,Blond + light brown,Small,Large,3.471
-480,Otis,2021,1,402,71227,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,Large,3.941
-480,Otis,2021,2,747,34000,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,Large,3.941
-480,Otis,2021,3,812,44581,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,Large,3.941
-480,Otis,2021,4,151,51230,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,Large,3.941
-503,,2021,2,812,22447,N,0,N,0,0,M,,Young adult,9,Brown ,Dark brown,Small,Large + Very large,2.941
-634,Popeye,2021,1,151,11820,N,0,N,0,0,M,Medium-large,Adult,22,Brown,Brown,Medium,Very large,2.529
-747,,2021,2,480,22532,N,0,N,0,1,M,Very large,Adult,20,Medium-brown to dark brown,Dark brown,Medium,Very large,5.176
-812,,2021,1,131,68092,Y,1,N,0,0,M,,Adult,6,,Brown,Medium,Large,3.529
-812,,2021,2,503,31728,Y,1,N,0,0,M,,Adult,6,,Brown,Medium,Large,3.529
-812,,2021,3,480,18451,N,0,N,0,0,M,,Adult,6,,Brown,Medium,Large,3.529
-32,Chunk,2020,1,719,59435,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,Very large,5.118
-32,Chunk,2020,2,435,30257,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,Very large,5.118
-32,Chunk,2020,3,128,26622,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,Very large,5.118
-32,Chunk,2020,4,747,21854,N,0,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,Very large,5.118
-128,Grazer,2020,2,909,6591,Y,1,N,0,0,F,Medium to large,Adult ,15,Dark blonde,Blond + light brown,Small,Very large,3.118
-128,Grazer,2020,3,32,28785,N,0,N,0,0,F,Medium to large,Adult ,15,Dark blonde,Blond + light brown,Small,Very large,3.118
-151,Walker,2020,1,856,73749,Y,1,N,0,0,M,Medium,Young adult,13,Brown,Brown,Medium,Large + Very large,6.236
-151,Walker,2020,2,480,41956,Y,1,N,0,0,M,Medium,Young adult,13,Brown,Brown,Medium,Large + Very large,6.236
-151,Walker,2020,3,747,10902,N,0,N,0,0,M,Medium,Young adult,13,Brown,Brown,Medium,Large + Very large,6.236
-402,,2020,2,812,11652,N,0,N,0,0,F,Large,Adult,22,Brown,Dark brown,Medium + large,Large + Very large,6.883
-435,Holly,2020,2,32,21475,N,0,N,0,1,F,Medium,Adult,21,Dark blonde/toasted marshmallow,Light brown,Small,Very large,4.059
-480,Otis,2020,2,151,19882,N,0,N,0,3,M,Medium-large,Adult,23,Brown,Light brown,Medium,Large,5.471
-719,,2020,1,32,12184,N,0,N,0,0,,Medium,Young Adult,7,Dark blonde,Light brown,Small,Large,3.647
-747,,2020,2,812,33748,Y,1,Y,1,0,M,Very large,Adult,19,Dark brown,Dark brown,Large,Very large,7.235
-747,,2020,3,151,31618,Y,1,Y,1,0,M,Very large,Adult,19,Dark brown,Dark brown,Large,Very large,7.235
-747,,2020,4,32,47055,Y,1,Y,1,0,M,Very large,Adult,19,Dark brown,Dark brown,Large,Very large,7.235
-812,,2020,1,402,39492,Y,1,N,0,0,M,,Young Adult,5,Brown,Light brown,Small,Very large,3.647
-812,,2020,2,747,25973,N,0,N,0,0,M,,Young Adult,5,Brown,Light brown,Small,Very large,3.647
-856,,2020,1,128,16803,N,0,N,0,0,M,Large,Adult,19,Brown,Brown,Medium,Large,5.236
-909,,2020,1,435c,25665,Y,1,N,0,0,F,Small,Subadult,4,Blonde,Brown,Small,Large,3.588
-909,,2020,2,128,41023,N,0,N,0,0,F,Small,Subadult,4,Blonde,Brown,Small,Large,3.588
-435C,,2020,1,909,19182,N,0,N,0,0,F,Small,Cub,1,Blonde,Light brown,Small,Small,5
+BearNumber,Name,Year,Round,Opponent,Number of Votes,RoundWin,RoundWinBinary,CompetitionWin,CompWinBinary,NumPreviousWins,Sex,ParkSize,ParkAgeCategory,ParkAge,ParkFur,SurveyFur,SurveyBefore,BeforeSizeMode,BeforeSizeSum,BeforeSizeCount,SurveyAfter,AfterSum,AfterCount,SurveyAngle
+32,Chunk,2021,2,151,11038,N,0,N,0,0,M,Large,Adult,16,Medium-brown to dark brown,Dark brown,Large,3,30,17,Medium,54,17,4.882
+128,Grazer,2021,1,435,52145,Y,1,N,0,0,F,Medium to large,Adult,16,Blond to light-blond,Blond,Medium,2,45,17,Large,43,17,3.353
+128,Grazer,2021,2,132,32251,N,0,N,0,0,F,Medium to large,Adult,16,Blond to light-blond,Blond,Medium,2,45,17,Large,43,17,3.353
+131,,2021,1,812,17706,N,0,N,0,0,F,Small,Subadult,3,,Blond,Small,1,21,17,Medium,34,17,3.176
+132c,132's cub,2021,2,128,40968,Y,1,N,0,0,,,Cub,1,,Brown,Small,1,18,17,Small,29,17,4.706
+132c,132's cub,2021,3,151,31399,N,0,N,0,0,,,Cub,1,,Brown,Small,1,18,17,Small,29,17,4.706
+151,Walker,2021,1,634,64451,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,2,37,17,Very large,65,17,4.235
+151,Walker,2021,2,32,60621,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,2,37,17,Very large,65,17,4.235
+151,Walker,2021,3,132,224496,Y,1,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,2,37,17,Very large,65,17,4.235
+151,Walker,2021,4,480,44834,N,0,N,0,0,M,Medium,Young adult,14,Brown,Dark brown,Medium,2,37,17,Very large,65,17,4.235
+402,,2021,1,480,14026,N,0,N,0,0,F,Large,Adult,23,Dark blonde or brown,Brown,Medium,2,40,17,Very large,55,17,5.176
+435,Holly,2021,1,128,25420,N,0,N,0,1,F,Medium,Adult,22,Light blonde to toasted marshmallow???,Blond,Small,1,25,17,Large,49,17,3.471
+480,Otis,2021,1,402,71227,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,1,22,17,Large,55,17,3.941
+480,Otis,2021,2,747,34000,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,1,22,17,Large,55,17,3.941
+480,Otis,2021,3,812,44581,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,1,22,17,Large,55,17,3.941
+480,Otis,2021,4,151,51230,Y,1,Y,1,3,M,Medium-large,Adult,24,Dark blonde to brown,Light brown,Small,1,22,17,Large,55,17,3.941
+503,,2021,2,812,22447,N,0,N,0,0,M,,Young adult,9,Brown ,Dark brown,Small,1,30,17,Large + Very large,55,17,2.941
+634,Popeye,2021,1,151,11820,N,0,N,0,0,M,Medium-large,Adult,22,Brown,Brown,Medium,2,38,17,Very large,58,17,2.529
+747,,2021,2,480,22532,N,0,N,0,1,M,Very large,Adult,20,Medium-brown to dark brown,Dark brown,Medium,2,39,17,Very large,63,17,5.176
+812,,2021,1,131,68092,Y,1,N,0,0,M,,Adult,6,,Brown,Medium,2,31,17,Large,52,17,3.529
+812,,2021,2,503,31728,Y,1,N,0,0,M,,Adult,6,,Brown,Medium,2,31,17,Large,52,17,3.529
+812,,2021,3,480,18451,N,0,N,0,0,M,,Adult,6,,Brown,Medium,2,31,17,Large,52,17,3.529
+32,Chunk,2020,1,719,59435,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,2,33,17,Very large,,17,5.118
+32,Chunk,2020,2,435,30257,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,2,33,17,Very large,,17,5.118
+32,Chunk,2020,3,128,26622,Y,1,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,2,33,17,Very large,,17,5.118
+32,Chunk,2020,4,747,21854,N,0,N,0,0,M,Large,Adult,15,Dark brown,Dark brown,Medium,2,33,17,Very large,,17,5.118
+128,Grazer,2020,2,909,6591,Y,1,N,0,0,F,Medium to large,Adult ,15,Dark blonde,Light brown,Small,1,21,17,Very large,,17,3.118
+128,Grazer,2020,3,32,28785,N,0,N,0,0,F,Medium to large,Adult ,15,Dark blonde,Light brown,Small,1,21,17,Very large,,17,3.118
+151,Walker,2020,1,856,73749,Y,1,N,0,0,M,Medium,Young adult,13,Brown,Brown,Medium,2,35,17,Large + Very large,,17,6.236
+151,Walker,2020,2,480,41956,Y,1,N,0,0,M,Medium,Young adult,13,Brown,Brown,Medium,2,35,17,Large + Very large,,17,6.236
+151,Walker,2020,3,747,10902,N,0,N,0,0,M,Medium,Young adult,13,Brown,Brown,Medium,2,35,17,Large + Very large,,17,6.236
+402,,2020,2,812,11652,N,0,N,0,0,F,Large,Adult,22,Brown,Dark brown,Medium + large,2.5,44,17,Large + Very large,,17,6.883
+435,Holly,2020,2,32,21475,N,0,N,0,1,F,Medium,Adult,21,Dark blonde/toasted marshmallow,Light brown,Small,1,27,17,Very large,,17,4.059
+480,Otis,2020,2,151,19882,N,0,N,0,3,M,Medium-large,Adult,23,Brown,Light brown,Medium,2,28,17,Large,,17,5.471
+719,,2020,1,32,12184,N,0,N,0,0,,Medium,Young Adult,7,Dark blonde,Light brown,Small,1,22,17,Large,,17,3.647
+747,,2020,2,812,33748,Y,1,Y,1,0,M,Very large,Adult,19,Dark brown,Dark brown,Large,3,48,17,Very large,,17,7.235
+747,,2020,3,151,31618,Y,1,Y,1,0,M,Very large,Adult,19,Dark brown,Dark brown,Large,3,48,17,Very large,,17,7.235
+747,,2020,4,32,47055,Y,1,Y,1,0,M,Very large,Adult,19,Dark brown,Dark brown,Large,3,48,17,Very large,,17,7.235
+812,,2020,1,402,39492,Y,1,N,0,0,M,,Young Adult,5,Brown,Light brown,Small,1,22,17,Very large,,17,3.647
+812,,2020,2,747,25973,N,0,N,0,0,M,,Young Adult,5,Brown,Light brown,Small,1,22,17,Very large,,17,3.647
+856,,2020,1,128,16803,N,0,N,0,0,M,Large,Adult,19,Brown,Brown,Medium,2,29,17,Large,,17,5.236
+909,,2020,1,435c,25665,Y,1,N,0,0,F,Small,Subadult,4,Blonde,Brown,Small,1,20,17,Large,,17,3.588
+909,,2020,2,128,41023,N,0,N,0,0,F,Small,Subadult,4,Blonde,Brown,Small,1,20,17,Large,,17,3.588
+435C,,2020,1,909,19182,N,0,N,0,0,F,Small,Cub,1,Blonde,Light brown,Small,1,1,1,Small,,1,5
