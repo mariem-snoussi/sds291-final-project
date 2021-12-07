@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 #messy file
 .DS_Store
+
+#no knitted pdfs
+.pdf
