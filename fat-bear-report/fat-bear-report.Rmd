@@ -202,8 +202,8 @@ Respondent perception of a bear’s size, color, and position in relation to the
 Each row of the dataset is one half of a matchup in the tournament. Each row contains the bear’s designated number, name (if applicable), contest year, round, opponent’s designated number, number of votes received in that matchup, outcome of the matchup, outcome of the whole tournament, number of previous Fat Bear Week wins, sex, age, fur color, summer size (before), fall size(after), and angle to the camera. It is our hope that our findings could be applied to predicting the winner of future Fat Bear Week tournaments.
 
 ## Outcome Variable
-The outcome variable for the first hypothesis is Winning Round 2. It's a binary response with 0 represnting a loss and 1 representing a win.
-The outcome variable for the second hypothesis is number of votes obtained in the first round. This is a quantitative variable in the positive integers, each vote will count as one unit.
+The outcome variable for the first hypothesis is number of votes obtained in the first round. This is a quantitative variable in the positive integers, each vote will count as one unit.
+The outcome variable for the second hypothesis is RoundWinBinary (associated with Round 2). It's a binary response with 0 representing a loss and 1 representing a win.
 
 ## Explanatory Variable
 The explanatory variables are:
