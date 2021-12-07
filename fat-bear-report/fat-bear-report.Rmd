@@ -196,6 +196,11 @@ lagged_bears <- bears %>%
   mutate(votes_last_round=lag(Number.of.Votes)) %>%
   ungroup()
 
+lagged_bears <- lagged_bears %>%
+  mutate(BeforeAvg=BeforeSizeSum/BeforeSizeCount)
+
+lagged_bears <- lagged_bears %>%
+  mutate(AfterAvg=AfterSum/AfterCount)
 ```
 
 ## Purpose
