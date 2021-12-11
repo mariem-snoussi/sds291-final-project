@@ -14,6 +14,8 @@ library(openintro)
 library(mosaic)
 library(modeest)
 library(GGally)
+library(moderndive)
+
 ```
 
 
@@ -212,10 +214,10 @@ We plan to use data about the last two years of the Fat Bear Week competition th
 Respondent perception of a bear’s size, color, and position in relation to the camera is subjective and vary between respondents. To determine the attributes size (before & after), color, and angle of each bear relative to the camera, we conducted two brief surveys (one for each contest year) with human respondents. The survey asked respondents to look at the official before and after photos of the bears from the contests, and report each bear’s size, angle in relation to the camera, and fur color. We used convenience sampling of primarily our friends and family. We obtained the results of the survey for each bear by identifying the most frequent response for the questions related to fur color and size, and took the mean of the responses for angle to the camera.
 
 ## Population
-Each row of the dataset is one half of a matchup in the tournament. Each row contains the bear’s designated number, name (if applicable), contest year, round, opponent’s designated number, number of votes received in that matchup, outcome of the matchup, outcome of the whole tournament, number of previous Fat Bear Week wins, sex, age, fur color, summer size (before), fall size(after), and angle to the camera. It is our hope that our findings could be applied to predicting the winner of future Fat Bear Week tournaments.
+Each row of the dataset is one half of a match-up in the tournament. Each row contains the bear’s designated number, name (if applicable), contest year, round, opponent’s designated number, number of votes received in that match-up, outcome of the match-up, outcome of the whole tournament, number of previous Fat Bear Week wins, sex, age, fur color, summer size (before), fall size(after), and angle to the camera. It is our hope that our findings could be applied to predicting the winner of future Fat Bear Week tournaments.
 
 ## Outcome Variable
-The outcome variable for the first hypothesis is number of votes obtained in the first round. This is a quantitative variable in the positive integers, each vote will count as one unit.
+The outcome variable for the first hypothesis is number of votes (Number.of.Votes) obtained in the first round. This is a quantitative variable in the positive integers, each vote will count as one unit.
 The outcome variable for the second hypothesis is RoundWinBinary (associated with Round 2). It's a binary response with 0 representing a loss and 1 representing a win.
 
 ## Explanatory Variable
@@ -224,7 +226,7 @@ Sex, a binary variable with values "M" for male and "F" for female.
 Color is a categorical variable. It's possible values are "Blond", "Light Brown", "Brown", "dark Brown"
 Age is a quantitative variable. Its unit is years.
 Presence of names is a binary variable. It will be 0 if the bear does not have a name and 1 when they have a name.
-Number of Votes is a quantitative variable, Each one point increase is equivalent to 1 additional vote towards the bear. 
+Number of Votes is a quantitative variable. Each one point increase is equivalent to 1 additional vote towards the bear. 
 
 
 ## Exploratory Visualizations
@@ -255,37 +257,123 @@ bears %>%
 ```
 
 
-```{r}
-# logit model for SurveyAngle and Win
-logitAngle <- glm(CompWinBinary ~ SurveyAngle, data = bears, family = binomial)
-summary(logitAngle)
-```
+
 
 
 ```{r}
 #logit model with Win and Age
-logitAge <- glm(CompWinBinary ~ ParkAge, data = bears, family = binomial)
+logitAge <- glm(CompWinBinary ~ ParkAge + Round, data = bears, family = binomial)
 summary(logitAge)
 ```
 
 
 ```{r}
-logitAgeAngle <- glm(CompWinBinary ~ ParkAge*SurveyAngle, data = bears, family = binomial)
-summary(logitAgeAngle)
+exp(cbind(OR = coef(logitAge), confint(logitAge)))
+qnorm(p=.05/2, lower.tail=FALSE)
+
+```
+fitted logistic regression equation in logit form:
+$$log(\frac{{\widehat\pi}_{Win}}{1-{\widehat\pi}_{Win}})= -20.3528 + 0.7411(Age) + 1.9822(Round) $$
+
+Adjusting for round, the association between winning the tournament and age is statistically significant. Specifically, the odds of a bear winning the tournament are 2.09 times higher for each year increase in age, adjusting for round, on average in the population. The z-statistic is slightly larger (z=2.00) and the pvalue is small (p=0.0215) compared to their critical values (z=1.96, p<0.05), so we can reject the null hypothesis that the relationship between the odds of winning the tournament and age was statistically significant. We also see that the 95% CI for this estimate (OR:2.098, 95% CI: 1.32, 4.99), does not include the null of 1.
+
+Adjusting for age, the odds of a bear winning the tournament are 1.98 times higher for each additional round passed, on average in the population.
+
+#### HYPOTHESIS TESTS
+
+
+```{r}
+bears %>%
+  select(Number.of.Votes, Round, SurveyAngle) %>%
+  ggpairs()
+```
+```{r}
+bears_out <- lagged_bears %>%
+     filter(Number.of.Votes<224496)
+```
+
+
+```{r}
+hyp1 <- lm(Number.of.Votes ~ SurveyAngle, data = bears)
+summary(hyp1)
 ```
 
 ```{r}
-logitAgeAngle2 <- glm(CompWinBinary ~ ParkAge  + SurveyAngle, data = bears, family = binomial)
-summary(logitAgeAngle2)
+qplot(x = SurveyAngle, y = Number.of.Votes, data = bears)
+```
+
+```{r}
+# Linear regression model for SurveyAngle and Votes controlling for round
+hyp1mod <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears)
+summary(hyp1mod)
+```
+fitted: $$ \widehat{NumberOfVotes} = 34265 -1072(Angle) + 3894(Round) $$
+```{r}
+# Linear regression model for SurveyAngle and Votes controlling for round
+hyp1modOut <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears_out)
+summary(hyp1modOut)
 ```
 
 
-Idea for second hypothesis: 
-filter for all who won first round. run logitmod with win and number of votes with filtered data
+```{r}
+plot(hyp1mod)
+qplot(hyp1mod$residuals, bins = 13)
+```
+```{r}
+plot(hyp1modOut)
+qplot(hyp1modOut$residuals, bins = 13)
+```
+
+
+```{r}
+ggplot(bears, aes(x = SurveyAngle, y = Number.of.Votes, color = factor(Round))) + geom_point() +
+geom_parallel_slopes(se = FALSE)
+```
+
+```{r}
+ggplot(bears_out, aes(x = SurveyAngle, y = Number.of.Votes, color = factor(Round))) + geom_point() +
+geom_parallel_slopes(se = FALSE)
+```
+
+
+
+
+```{r}
+logitHyp2 <- glm(RoundWinBinary ~ votes_last_round, data = lagged_bears, family = binomial)
+summary(logitHyp2)
+```
+
+```{r}
+
+exp(cbind(OR = coef(logitHyp2), confint(logitHyp2)))
+qnorm(p=.05/2, lower.tail=FALSE)
+```
+
+fitted logistic regression equation in logit form:
+$$log(\frac{{\widehat\pi}_{RoundWin}}{1-{\widehat\pi}_{RoundWin}})= 0.2702 - 1.308*10^{-6}(VotesLastRound)$$
+
+The association between winning a round and number of votes obtained in previous round is not statistically significant. Specifically, the odds of a bear winning a round are 0.0000013 times lower or approximately equal for every 1 increase in vote, on average in this population. However, the z-statistic was small (-0.125) and pvalue was large (p=0.900) relative to their critical values (z=1.96, p<0.05), so we fail to reject the null hypothesis that the relationship between the odds of a bear winning a round in the tournament and the number of votes obtained by the bear in the previous round is statistically significantly. We also see that the 95% CI for this estimate (OR:0.9999987, 95% CI: 0.9999742, 1.000023) includes the null of 1.
+
+
+```{r}
+bears_2 <- lagged_bears %>%
+     filter(Round==2)
+logitHyp2test <- glm(RoundWinBinary ~ votes_last_round, data = bears_2, family = binomial)
+summary(logitHyp2)
+```
+
+
+```{r}
+qplot(x=votes_last_round, y=RoundWinBinary, data=lagged_bears) +
+  geom_smooth(method="glm", method.args = list(family = "binomial"), se=FALSE)
+```
+
 
 
 ## References 
 
-[1] Sarkar, D. (2021, October 08). A Glimpse Inside Fat Bear Week. Retrieved November 22, 2021, from [https://www.discovermagazine.com/planet-earth/a-glimpse-inside-fat-bear-week](https://www.discovermagazine.com/planet-earth/a-glimpse-inside-fat-bear-week)
+[1] Sarkar, D. (2021, October 08). A Glimpse Inside Fat Bear Week. Retrieved November 22, 2021, from          [https://www.discovermagazine.com/planet-earth/a-glimpse-inside-fat-bear-week](https://www.discovermagazine.com/planet-earth/a-glimpse-inside-fat-bear-week)
 
 [2] Fat Bear Week 2021. (n.d.). Retrieved November 22, 2021, from [https://explore.org/fat-bear-week](https://explore.org/fat-bear-week)
+
+[3] Spencer, C. (2021, October 6). 480 Otis [Photograph found in National Park Service, Katmai National Park]. Retrieved December 8, 2021,          from https://www.nps.gov/katm/learn/fat-bear-week-2021.htm (Originally photographed 2021, September 16)
