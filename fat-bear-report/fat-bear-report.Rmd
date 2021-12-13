@@ -294,11 +294,6 @@ bears_out <- lagged_bears %>%
 
 
 ```{r}
-hyp1 <- lm(Number.of.Votes ~ SurveyAngle, data = bears)
-summary(hyp1)
-```
-
-```{r}
 qplot(x = SurveyAngle, y = Number.of.Votes, data = bears)
 ```
 
@@ -308,6 +303,19 @@ hyp1mod <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears)
 summary(hyp1mod)
 ```
 fitted: $$ \widehat{NumberOfVotes} = 34265 -1072(Angle) + 3894(Round) $$
+
+We predict that a bear would win 34,364 votes at Round 0 and at 0 degrees rotation from camera (??). 
+
+For every 1 point in angle rotation (fix this part), we'd predict a 1,072 point decrease in votes, holding round constant. However, we fail to reject the null hypothesis that $\beta_1 =0$. Therefore, we cannot say there is a statistically significant effect of SurveryAngle on Number of Votes when controlling for round, t(41) = -0.244, p= 0.809.
+
+For every 1 round increase, we'd predict a 3,894 point increase in votes, holding SurveyAngle constant. However, we fail to reject the null hypothesis that $\beta_2 =0$. Therefore, we cannot say there is a statistically significant effect of Round on Number of Votes, holding SurveyAngle Constant, t(41) = 0.683, p= 0.499.
+
+Our model does not explain a statistically significant amount of variation in number of votes, F(2, 41) = 7.71 , p =0.791.
+
+
+
+
+
 ```{r}
 # Linear regression model for SurveyAngle and Votes controlling for round
 hyp1modOut <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears_out)
@@ -319,11 +327,16 @@ summary(hyp1modOut)
 plot(hyp1mod)
 qplot(hyp1mod$residuals, bins = 13)
 ```
+Homogeneity of errors fails.
+Linearity fails.
+Normal distribution fails kinda. Obvious outlier. 
+Independence fails.
+
 ```{r}
 plot(hyp1modOut)
 qplot(hyp1modOut$residuals, bins = 13)
 ```
-
+Better normality but still off. Residuals distributed above and below zero line more evenly but fans out. Linearity fails. 
 
 ```{r}
 ggplot(bears, aes(x = SurveyAngle, y = Number.of.Votes, color = factor(Round))) + geom_point() +
