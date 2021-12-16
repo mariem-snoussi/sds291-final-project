@@ -32,8 +32,14 @@ survey21<-read.csv("Survey2021.csv")
 ## Results
 
 ## Discussion
+When exploring our first hypothesis : Hypothesis 1: angle facing camera increases likelihood of success, we have found no evidence of a statistically significant relationship between the response and predictor. 
+Similarly, for our second hypothesis, exploring whether a higher number of votes in the previous round leads to winning the current round, we have found no evidence of a significant relationship.
+Even though we failed to reject the null hypothesis for both of our main hypotheses, we have found that the association between the age and likelihood of winning the tournament when controlling for the round is statistically significant. 
 
 ## Limitations
+There are various factors to consider when assessing the limitations of our research.
+The data collection process was not randomized, both in regards to human responders to the surveys (friends and family ), as well as the bears that are picked using certain criteria at the park.
+Additionally, the sample size of both surveyed humans and the bears are too small to make founded predictions.
 
 ## References
 
