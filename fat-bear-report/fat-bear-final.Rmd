@@ -29,6 +29,14 @@ survey21<-read.csv("Survey2021.csv")
 
 ## Methods
 
+
+// add after second to last paragraph
+```{r}
+bearimgs<-list.files("images/", pattern = ".jpg", full.names = TRUE)
+include_graphics(bearimgs)
+```
+
+
 ## Results
 
 ## Discussion
