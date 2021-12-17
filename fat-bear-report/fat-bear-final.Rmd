@@ -51,6 +51,24 @@ include_graphics(bearimgs)
 
 ## Results
 We are interested in using number of votes per round (Number.of.Votes) and age of bear (ParkAge) to predict probability of a bear winning a round. We also are interested in using angle of bear to camera (SurveyAngle) to predict the number of votes per round a bear will receive. Looking at the matrix scatterplot, we can see that there is no apparent linear relationship between the number of votes a bear wins per round and the angle of the bear to the camera. We can also see that there is a clear outlier at the top of the scatterplot. 
+
+
+```{r}
+lagged_bears <- bears %>%
+  arrange(Year,BearNumber,Round) %>%
+  group_by(Year,BearNumber)%>%
+  mutate(votes_last_round=lag(Number.of.Votes)) %>%
+  ungroup()
+
+lagged_bears <- lagged_bears %>%
+  mutate(BeforeAvg=BeforeSizeSum/BeforeSizeCount)
+
+lagged_bears <- lagged_bears %>%
+  mutate(AfterAvg=AfterSum/AfterCount)
+```
+
+
+
 ```{r}
 bears_out <- lagged_bears %>%
      filter(Number.of.Votes<224496)
