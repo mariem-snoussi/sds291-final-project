@@ -15,7 +15,7 @@ library(mosaic)
 library(modeest)
 library(GGally)
 library(moderndive)
-
+library(knitr)
 ```
 
 ```{r}
@@ -24,17 +24,29 @@ survey20<-read.csv("Survey2020.csv")
 survey21<-read.csv("Survey2021.csv")
 ```
 
+## Abstract
+Fat Bear Week is an annual single-elimination tournament of 12 brown bears in Katmai National Park in which the outcome of each matchup is determined by receiving more audience votes.
+This report dives into questions on whether certain features of bears can predict outcome of the competition and winning rounds. 
+We have collected data from previous competition websites as well as surveyed a convenience sample of 17 participants to quantify and determine the most common perceptible features like fur color, size, and angle towards the camera.
+We run regressions on our data and then evaluate the conditions and the strength of the relationship between predictors and their corresponding outcome variables. The result of our work is that, even though there is no evidence of a statistically significant relationship between winning a round and the angle of the bear in their picture, we can use the age variable to predict tournament outcomes.
+
 ## Introduction
+We aim to investigate which factors affect the outcome of Fat Bear Week. Fat Bear Week is an annual single-elimination tournament of 12 brown bears in Katmai National Park in which the outcome of each matchup is determined by receiving more audience votes. In each matchup, voters choose between two bears after being presented with a photo of each bear in the summer (before weight gain) and in the fall (after), allowing a voter to consider the change in a bear’s size from summer to fall in addition to its fall size alone. According to the Fat Bear Week voting page, the competition is subjective and can be based on a variety of factors beyond the undefined “fatness.” For instance, <“You can consider a bear’s annual growth like that experienced by cubs and subadult (teenage) bears… Perhaps you want to weigh your vote toward bears with extenuating circumstances such as a mother’s cost of raising cubs or the additional challenges older bears face as they age... You can also vote for the bear you think is the simply the largest and fattest. In short, Fat Bear Week is a subjective competition. Be sure to vote and campaign for your favorite candidate.”>[1] The literature suggests that there would still be inconsistencies between responses if the contest were based solely on fatness, as pet owners do not always agree with experts about their animal’s size and we would expect an increased inability to determine size or fatness in animals that people are less familiar with, such as bears[2].
+	We hypothesized that a bear’s angle toward the camera in its fall photo would be associated with the number of votes it received in a round, with bears facing the camera straight on looking smaller and thus getting fewer votes than bears with their side or backends facing the camera. We also hypothesized that the probability of a bear winning the current round would be positively associated with the number of votes it received in its previous round. We also explored other variables that we suspected might influence a bear’s success, such as fur color, age, and change in size.
+	We created models and found no evidence of statistically significant relationships between number of votes and angle to camera or number of votes and winning the next round, but we did find a statistically significant relationship between a bear’s age and the probability of winning the whole tournament. 
 
 
 ## Methods
+We compiled the dataset ourselves from existing information about outcomes of Fat Bear Week and the bears, and from the results of a survey we administered to get a rough idea of how some human voters perceive the bears. Each row in the dataset represents one side of a matchup in the tournament, including a bear’s identification number, fur color, age, summer size, fall size, and angle to the camera; as well as a matchup number, the round number, outcome of the matchup and the tournament, and votes received in the current and previous rounds. We limited our analysis to 2020 and 2021 Fat Bear Week tournaments, although the competition has taken place since 2014, because prior to 2020, Fat Bear Week took place on Facebook and the outcome of a matchup between two bears was determined by which bear’s post received the most “Likes.” That created a source of bias in the results, due to the Facebook algorithm’s amplifying posts given previous Likes and engagement. In 2020 and 2021, Fat Bear Week voting occurred on a designated webpage where each voter is guaranteed to have seen both bears competing in each matchup they vote on. The bears chosen to compete in each year’s tournament are not chosen randomly. Naturalist Mike Fitz said <”The bears are typically chosen by the park rangers, based on a variety of factors such as their time of arrival at Brooks River… A compelling storyline is also a driving factor when choosing a contestant. The audience loves to see a veteran bear with skill and resilience, like Otis, competing year after year”> [3]
 
 
-// add after second to last paragraph
+To determine each bear’s angle to the camera in its fall photo, fall size, summer size, and fur color, we administered two surveys to human respondents, one for each contest year. The *Bears of Brooks River* pamphlets and other materials include information on size and fur color for each bear, but we opted to ask about those attributes in our survey rather than using official park information to get at how the voting public viewed the bears rather than professionals like park rangers. We used convenience sampling of primarily our friends, classmates, and family for our surveys, which resulted in 17 respondents to each survey. To get the results from our surveys, we took the most frequent response for each bear’s fur color to be its fur color. If two or more fur colors were equally frequent in the responses, we answered the question ourselves to break the tie. We converted size responses to numbers (1 is Small, 4 is Extra Large) and took the average responses for summer and fall sizes. We asked our respondents to indicate the bear’s angle to the camera on a scale of 1 to 10, where 1 indicated facing the camera directly, 5 being side-on, and 10 completely facing away from the camera. The scale of 1-10 corresponds to 180 degrees, where each one unit increase in angle scale response corresponds to the bear facing an additional 18 degrees away from the camera. 
 ```{r}
 bearimgs<-list.files("images/", pattern = ".jpg", full.names = TRUE)
 include_graphics(bearimgs)
 ```
+
+	Fat Bear Week being a tournament complicated the condition of independence. To mitigate the impact of the tournament structure on the results, we controlled for round in our models. To investigate our first hypothesis, we chose a multiple regression model predicting the number of votes from angle and round. For our second hypothesis, we chose a logistic regression model predicting the probability of winning the current round from the number of votes in the previous round.
 
 
 ## Results
@@ -94,10 +106,15 @@ Even though we failed to reject the null hypothesis for both of our main hypothe
 
 ## Limitations
 There are various factors to consider when assessing the limitations of our research.
-The data collection process was not randomized, both in regards to human responders to the surveys (friends and family ), as well as the bears that are picked using certain criteria at the park.
+The data collection process was not randomized. The bears that are picked using certain criteria at the park, and the responders of our survey were a convenience sample, mainly friends and family members.
 Additionally, the sample size of both surveyed humans and the bears are too small to make founded predictions.
 
-## References
 
+## References
+[1] Explore.org. “Fat Bear Week 2021.” https://explore.org/fat-bear-week.
+
+[2] Kienzle, Ellen, and Reinhold Bergler. “Human-Animal Relationship of Owners of Normal and Overweight Cats.” The Journal of Nutrition 136, no. 7 (July 1, 2006): 1947S-1950S. https://doi.org/10.1093/jn/136.7.1947S.
+
+[3] https://www.discovermagazine.com/planet-earth/a-glimpse-inside-fat-bear-week
 
 
