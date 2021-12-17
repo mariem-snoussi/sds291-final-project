@@ -4,11 +4,11 @@ author: "Laura Mora, Mariem Snoussi, Maya Crandall-Malcolm"
 date: "`r Sys.Date()`"
 output:
   pdf_document:
-    toc: yes
+    toc: no
   toc: default
 ---
 
-```{r load-packages, message=FALSE}
+```{r load-packages, include=FALSE}
 library(tidyverse)
 library(openintro)
 library(mosaic)
@@ -18,7 +18,7 @@ library(moderndive)
 library(knitr)
 ```
 
-```{r}
+```{r, echo=FALSE}
 bears<-read.csv("FullBearData.csv")
 survey20<-read.csv("Survey2020.csv")
 survey21<-read.csv("Survey2021.csv")
@@ -29,31 +29,41 @@ Fat Bear Week is an annual single-elimination tournament of 12 brown bears in Ka
 This report dives into questions on whether certain features of bears can predict outcome of the competition and winning rounds. 
 We have collected data from previous competition websites as well as surveyed a convenience sample of 17 participants to quantify and determine the most common perceptible features like fur color, size, and angle towards the camera.
 We run regressions on our data and then evaluate the conditions and the strength of the relationship between predictors and their corresponding outcome variables. The result of our work is that, even though there is no evidence of a statistically significant relationship between winning a round and the angle of the bear in their picture, we can use the age variable to predict tournament outcomes.
+\newpage
 
 ## Introduction
-We aim to investigate which factors affect the outcome of Fat Bear Week. Fat Bear Week is an annual single-elimination tournament of 12 brown bears in Katmai National Park in which the outcome of each matchup is determined by receiving more audience votes. In each matchup, voters choose between two bears after being presented with a photo of each bear in the summer (before weight gain) and in the fall (after), allowing a voter to consider the change in a bear’s size from summer to fall in addition to its fall size alone. According to the Fat Bear Week voting page, the competition is subjective and can be based on a variety of factors beyond the undefined “fatness.” For instance, <“You can consider a bear’s annual growth like that experienced by cubs and subadult (teenage) bears… Perhaps you want to weigh your vote toward bears with extenuating circumstances such as a mother’s cost of raising cubs or the additional challenges older bears face as they age... You can also vote for the bear you think is the simply the largest and fattest. In short, Fat Bear Week is a subjective competition. Be sure to vote and campaign for your favorite candidate.”>[1] The literature suggests that there would still be inconsistencies between responses if the contest were based solely on fatness, as pet owners do not always agree with experts about their animal’s size and we would expect an increased inability to determine size or fatness in animals that people are less familiar with, such as bears[2].
+We aim to investigate which factors affect the outcome of Fat Bear Week. Fat Bear Week is an annual single-elimination tournament of 12 brown bears in Katmai National Park in which the outcome of each matchup is determined by receiving more audience votes. In each matchup, voters choose between two bears after being presented with a photo of each bear in the summer (before weight gain) and in the fall (after), allowing a voter to consider the change in a bear’s size from summer to fall in addition to its fall size alone. According to the Fat Bear Week voting page, the competition is subjective and can be based on a variety of factors beyond the undefined “fatness.” For instance, 
+
+>“You can consider a bear’s annual growth like that experienced by cubs and subadult (teenage) bears… Perhaps you want to weigh your vote toward bears with extenuating circumstances such as a mother’s cost of raising cubs or the additional challenges older bears face as they age... You can also vote for the bear you think is the simply the largest and fattest. In short, Fat Bear Week is a subjective competition. Be sure to vote and campaign for your favorite candidate.”[1]
+
+ The literature suggests that there would still be inconsistencies between responses if the contest were based solely on fatness, as pet owners do not always agree with experts about their animal’s size and we would expect an increased inability to determine size or fatness in animals that people are less familiar with, such as bears[2].
 	We hypothesized that a bear’s angle toward the camera in its fall photo would be associated with the number of votes it received in a round, with bears facing the camera straight on looking smaller and thus getting fewer votes than bears with their side or backends facing the camera. We also hypothesized that the probability of a bear winning the current round would be positively associated with the number of votes it received in its previous round. We also explored other variables that we suspected might influence a bear’s success, such as fur color, age, and change in size.
 	We created models and found no evidence of statistically significant relationships between number of votes and angle to camera or number of votes and winning the next round, but we did find a statistically significant relationship between a bear’s age and the probability of winning the whole tournament. 
 
 
 ## Methods
-We compiled the dataset ourselves from existing information about outcomes of Fat Bear Week and the bears, and from the results of a survey we administered to get a rough idea of how some human voters perceive the bears. Each row in the dataset represents one side of a matchup in the tournament, including a bear’s identification number, fur color, age, summer size, fall size, and angle to the camera; as well as a matchup number, the round number, outcome of the matchup and the tournament, and votes received in the current and previous rounds. We limited our analysis to 2020 and 2021 Fat Bear Week tournaments, although the competition has taken place since 2014, because prior to 2020, Fat Bear Week took place on Facebook and the outcome of a matchup between two bears was determined by which bear’s post received the most “Likes.” That created a source of bias in the results, due to the Facebook algorithm’s amplifying posts given previous Likes and engagement. In 2020 and 2021, Fat Bear Week voting occurred on a designated webpage where each voter is guaranteed to have seen both bears competing in each matchup they vote on. The bears chosen to compete in each year’s tournament are not chosen randomly. Naturalist Mike Fitz said <”The bears are typically chosen by the park rangers, based on a variety of factors such as their time of arrival at Brooks River… A compelling storyline is also a driving factor when choosing a contestant. The audience loves to see a veteran bear with skill and resilience, like Otis, competing year after year”> [3]
+We compiled the dataset ourselves from existing information about outcomes of Fat Bear Week and the bears, and from the results of a survey we administered to get a rough idea of how some human voters perceive the bears. Each row in the dataset represents one side of a matchup in the tournament, including a bear’s identification number, fur color, age, summer size, fall size, and angle to the camera; as well as a matchup number, the round number, outcome of the matchup and the tournament, and votes received in the current and previous rounds. We limited our analysis to 2020 and 2021 Fat Bear Week tournaments, although the competition has taken place since 2014, because prior to 2020, Fat Bear Week took place on Facebook and the outcome of a matchup between two bears was determined by which bear’s post received the most “Likes.” That created a source of bias in the results, due to the Facebook algorithm’s amplifying posts given previous Likes and engagement. In 2020 and 2021, Fat Bear Week voting occurred on a designated webpage where each voter is guaranteed to have seen both bears competing in each matchup they vote on. The bears chosen to compete in each year’s tournament are not chosen randomly. Naturalist Mike Fitz said 
+
+>”The bears are typically chosen by the park rangers, based on a variety of factors such as their time of arrival at Brooks River… A compelling storyline is also a driving factor when choosing a contestant. The audience loves to see a veteran bear with skill and resilience, like Otis, competing year after year”[3]
 
 
 To determine each bear’s angle to the camera in its fall photo, fall size, summer size, and fur color, we administered two surveys to human respondents, one for each contest year. The *Bears of Brooks River* pamphlets and other materials include information on size and fur color for each bear, but we opted to ask about those attributes in our survey rather than using official park information to get at how the voting public viewed the bears rather than professionals like park rangers. We used convenience sampling of primarily our friends, classmates, and family for our surveys, which resulted in 17 respondents to each survey. To get the results from our surveys, we took the most frequent response for each bear’s fur color to be its fur color. If two or more fur colors were equally frequent in the responses, we answered the question ourselves to break the tie. We converted size responses to numbers (1 is Small, 4 is Extra Large) and took the average responses for summer and fall sizes. We asked our respondents to indicate the bear’s angle to the camera on a scale of 1 to 10, where 1 indicated facing the camera directly, 5 being side-on, and 10 completely facing away from the camera. The scale of 1-10 corresponds to 180 degrees, where each one unit increase in angle scale response corresponds to the bear facing an additional 18 degrees away from the camera. 
-```{r}
-bearimgs<-list.files("images/", pattern = ".jpg", full.names = TRUE)
+```{r,echo=FALSE, fig.align="center", out.width="50%", fig.cap="From left to right, the images correspond to angle scores of 1, 5, and 10, respectively. Figure Na1207, UCB Museum of Anthropology. Photographed by Kayla Bailey."}
+bearimgs<-list.files("images/", pattern = ".png", full.names = TRUE)
 include_graphics(bearimgs)
+
 ```
 
-	Fat Bear Week being a tournament complicated the condition of independence. To mitigate the impact of the tournament structure on the results, we controlled for round in our models. To investigate our first hypothesis, we chose a multiple regression model predicting the number of votes from angle and round. For our second hypothesis, we chose a logistic regression model predicting the probability of winning the current round from the number of votes in the previous round.
+
+
+Fat Bear Week being a tournament complicated the condition of independence. To mitigate the impact of the tournament structure on the results, we controlled for round in our models. To investigate our first hypothesis, we chose a multiple regression model predicting the number of votes from angle and round. For our second hypothesis, we chose a logistic regression model predicting the probability of winning the current round from the number of votes in the previous round.
 
 
 ## Results
 We are interested in using number of votes per round (Number.of.Votes) and age of bear (ParkAge) to predict probability of a bear winning a round. We also are interested in using angle of bear to camera (SurveyAngle) to predict the number of votes per round a bear will receive. Looking at the matrix scatterplot, we can see that there is no apparent linear relationship between the number of votes a bear wins per round and the angle of the bear to the camera. We can also see that there is a clear outlier at the top of the scatterplot. 
 
 
-```{r}
+```{r,include=FALSE}
 lagged_bears <- bears %>%
   arrange(Year,BearNumber,Round) %>%
   group_by(Year,BearNumber)%>%
@@ -69,52 +79,65 @@ lagged_bears <- lagged_bears %>%
 
 
 
-```{r}
+```{r,include=FALSE}
 bears_out <- lagged_bears %>%
      filter(Number.of.Votes<224496)
 ```
 
 
-```{r}
+```{r,echo=FALSE, out.width="50%", fig.align='center'}
 bears %>%
   select(CompWinBinary, Round, ParkAge, SurveyAngle, Number.of.Votes) %>%
   ggpairs()
 ```
+
+
 First, we will explore our first hypothesis. The more angled away from the camera the bear is, the more votes that bear will receive. Below is our fitted model for predicting the number of votes a bear will receive by how angled away from the camera the bear is, controlling for round. 
 $$ \widehat{NumberOfVotes} = 34265 -1072(Angle) + 3894(Round) $$
-```{r}
-qplot(x = SurveyAngle, y = Number.of.Votes, color = factor(Round), data = bears)
-```
-```{r}
-#DO WE WANT THIS IN THE PAPER? OR CAN WE JUST MENTION CHANGE IN SLOPE FOR INFLUENTIAL POINT?
-hyp1mod <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears)
-summary(hyp1mod)
-```
-```{r}
-hyp1modOut <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears_out)
-summary(hyp1modOut)
-```
-There is no apparent pattern in the scatterplot, but we can see that there is an outlier near the top of the graph. In 2021, a bear named Walker, obtained 224,496 votes in round three. We consider this data point to be influential because when we remove Walker’s number of votes (Round 3, 2021) from the dataset, our $\beta_1$ value changes from -1072 to 819.8. This then gives us the following plot:
-```{r}
-ggplot(bears_out, aes(x = SurveyAngle, y = Number.of.Votes, color = factor(Round))) + geom_point() +
-geom_parallel_slopes(se = FALSE)
-```
-By looking at the residual plots we can assess if our model fits the conditions required for a linear model. (EDIT IF MENTIONED ELSEWHERE) The independence of number of votes of each bear is not met because of the tournament style of the competition. Each round bears are eliminated. This implies that there are less bears for people to vote for and thus affecting how many votes the bears that advance to next round receive. Also, each voter can have a favorite bear that they keep voting for regardless of what other are in the round. We attempt to adjust for the dependence by controlling for round in the model. 
+```{r,echo=FALSE, out.width="50%"}
+qplot(x = SurveyAngle, y = Number.of.Votes, color = factor(Round), data = bears, main="Bear Angle to Camera by Number of Votes")
 
-```{r}
+ggplot(bears_out, aes(x = SurveyAngle, y = Number.of.Votes, color = factor(Round))) + geom_point() +
+geom_parallel_slopes(se = FALSE) + ggtitle("Bear Angle to Camera by Number of Votes Without Outlier")
+```
+```{r,echo=FALSE}
+hyp1mod <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears)
+
+```
+```{r,echo=FALSE}
+hyp1modOut <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears_out)
+
+```
+
+
+There is no apparent pattern in the scatterplot, but we can see that there is an outlier near the top of the graph. In 2021, a bear named Walker, obtained 224,496 votes in round three. We consider this data point to be influential because when we remove Walker’s number of votes (Round 3, 2021) from the dataset, our $\beta_1$ value changes from -1072 to 819.8. This then gives us the following plot:
+```{r, echo=FALSE, out.width="50%"}
+#ggplot(bears_out, aes(x = SurveyAngle, y = Number.of.Votes, color = factor(Round))) + geom_point() +
+#geom_parallel_slopes(se = FALSE)
+```
+
+
+By looking at the residual plots we can assess if our model fits the conditions required for a linear model. The independence of number of votes of each bear is not met because of the tournament style of the competition. Each round bears are eliminated. This implies that there are less bears for people to vote for and thus affecting how many votes the bears that advance to next round receive. Also, each voter can have a favorite bear that they keep voting for regardless of what other are in the round. We attempt to adjust for the dependence by controlling for round in the model. 
+
+```{r,echo=FALSE, out.width="50%"}
 plot(hyp1modOut, which = 1)
 plot(hyp1modOut, which = 2)
 ```
+
+
 From the Normal Q-Q plot, we can see that our residuals are skewed right. In the Residuals vs. Fitted plot we can see that the conditions of linearity and homogeneity of error are violated because the red line is curved and there is a clear fan pattern in the residuals. So, our model does not meet the conditions for a linear model. Also, based on the results of the ANOVA F-test, we cannot claim that our model explains a significant amount of variation in number of votes, F(2, 41) = 7.71, p =0.791.
 
 Next, we will explore our second hypothesis that the probability of a bear winning a round increases as the amount of votes gained the previous round increases. 
-```{r}
+```{r, echo=FALSE}
 logitHyp2 <- glm(RoundWinBinary ~ votes_last_round, data = lagged_bears, family = binomial)
-summary(logitHyp2)
+#summary(logitHyp2)
 ```
 $$log(\frac{{\widehat\pi}_{RoundWin}}{1-{\widehat\pi}_{RoundWin}})= 0.2702 - 1.308*10^{-6}(VotesLastRound)$$
-We found no evidence that number of votes in the previous round (votes_last_round) is associated with winning the current round (RoundWinBinary). The z-statistic, for the variable votes_last_round, small (-0.125) and p-value was large (p=0.900) relative to their critical values (z=1.96, p<0.05). Thus, both of our 
+We found no evidence that number of votes in the previous round (votes_last_round) is associated with winning the current round (RoundWinBinary). The z-statistic, for the variable votes_last_round, small (-0.125) and p-value was large (p=0.900) relative to their critical values (z=1.96, p<0.05).
 
+Additionally, we ran a third model that explores the probability of a bear winning the entire tournament using age of the bear as a predictor and controlling for round.
+$$log(\frac{{\widehat\pi}_{Win}}{1-{\widehat\pi}_{Win}})= -20.3528 + 0.7411(Age) + 1.9822(Round) $$
+Adjusting for round, the association between winning the tournament and age is statistically significant, p(|z|)=0.0215. Specifically, the odds of a bear winning the tournament are 2.09 times higher for each year increase in age, adjusting for round, on average in the population. While, adjusting for age, the association between winning the tournament and round is statistically significant. Specifically, the odds of a bear winning the tournament are 1.98 times higher for each additional round passed, on average in the population. For every additional year of age, the odds of winning the tournament are 2.1 times those of a bear one year younger. Furthermore, we are 95% confident that the true odds ratio for a one-year difference in age on winning the tournament is between 1.32 and 4.99. For every additional round, the odds of a bear winning the tournament are 7.3 times those of that same bear one round before. We are 95% confident that the true odds ratio for a one-round difference on winning the tournament is between 1.58 and 98.8.
 
 
 ## Discussion
@@ -127,12 +150,12 @@ There are various factors to consider when assessing the limitations of our rese
 The data collection process was not randomized. The bears that are picked using certain criteria at the park, and the responders of our survey were a convenience sample, mainly friends and family members.
 Additionally, the sample size of both surveyed humans and the bears are too small to make founded predictions.
 
-
+\newpage
 ## References
 [1] Explore.org. “Fat Bear Week 2021.” https://explore.org/fat-bear-week.
 
 [2] Kienzle, Ellen, and Reinhold Bergler. “Human-Animal Relationship of Owners of Normal and Overweight Cats.” The Journal of Nutrition 136, no. 7 (July 1, 2006): 1947S-1950S. https://doi.org/10.1093/jn/136.7.1947S.
 
-[3] https://www.discovermagazine.com/planet-earth/a-glimpse-inside-fat-bear-week
+[3] Sarkar, Donna. “A Glimpse Inside Fat Bear Week.” Discover Magazine, October 8, 2021. https://www.discovermagazine.com/planet-earth/a-glimpse-inside-fat-bear-week.
 
 
