@@ -38,6 +38,51 @@ include_graphics(bearimgs)
 
 
 ## Results
+We are interested in using number of votes per round (Number.of.Votes) and age of bear (ParkAge) to predict probability of a bear winning a round. We also are interested in using angle of bear to camera (SurveyAngle) to predict the number of votes per round a bear will receive. Looking at the matrix scatterplot, we can see that there is no apparent linear relationship between the number of votes a bear wins per round and the angle of the bear to the camera. We can also see that there is a clear outlier at the top of the scatterplot. 
+```{r}
+bears %>%
+  select(CompWinBinary, Round, ParkAge, SurveyAngle, Number.of.Votes) %>%
+  ggpairs()
+```
+First, we will explore our first hypothesis. The more angled away from the camera the bear is, the more votes that bear will receive. Below is our fitted model for predicting the number of votes a bear will receive by how angled away from the camera the bear is, controlling for round. 
+$$ \widehat{NumberOfVotes} = 34265 -1072(Angle) + 3894(Round) $$
+```{r}
+qplot(x = SurveyAngle, y = Number.of.Votes, color = factor(Round), data = bears)
+```
+```{r}
+#DO WE WANT THIS IN THE PAPER? OR CAN WE JUST MENTION CHANGE IN SLOPE FOR INFLUENTIAL POINT?
+hyp1mod <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears)
+summary(hyp1mod)
+```
+```{r}
+hyp1modOut <- lm(Number.of.Votes ~ SurveyAngle + Round, data = bears_out)
+summary(hyp1modOut)
+```
+There is no apparent pattern in the scatterplot, but we can see that there is an outlier near the top of the graph. In 2021, a bear named Walker, obtained 224,496 votes in round three. We consider this data point to be influential because when we remove Walker’s number of votes (Round 3, 2021) from the dataset, our $\beta_1$ value changes from -1072 to 819.8. This then gives us the following plot:
+```{r}
+ggplot(bears_out, aes(x = SurveyAngle, y = Number.of.Votes, color = factor(Round))) + geom_point() +
+geom_parallel_slopes(se = FALSE)
+```
+By looking at the residual plots we can assess if our model fits the conditions required for a linear model. (EDIT IF MENTIONED ELSEWHERE) The independence of number of votes of each bear is not met because of the tournament style of the competition. Each round bears are eliminated. This implies that there are less bears for people to vote for and thus affecting how many votes the bears that advance to next round receive. Also, each voter can have a favorite bear that they keep voting for regardless of what other are in the round. We attempt to adjust for the dependence by controlling for round in the model. 
+
+```{r}
+plot(hyp1modOut, which = 1)
+plot(hyp1modOut, which = 2)
+```
+From the Normal Q-Q plot, we can see that our residuals are skewed right. In the Residuals vs. Fitted plot we can see that the conditions of linearity and homogeneity of error are violated because the red line is curved and there is a clear fan pattern in the residuals. So, our model does not meet the conditions for a linear model. Also, based on the results of the ANOVA F-test, we cannot claim that our model explains a significant amount of variation in number of votes, F(2, 41) = 7.71 , p =0.791.
+Next, we will explore our first hypothesis. The more angled away from the camera the bear is, the more votes that bear will receive. Below is our fitted model for predicting the number of votes a bear will receive by how angled away from the camera the bear is, controlling for round. 
+Our second hypothesis also had negative results. Our
+
+```{r}
+logitHyp2 <- glm(RoundWinBinary ~ votes_last_round, data = lagged_bears, family = binomial)
+summary(logitHyp2)
+```
+$$log(\frac{{\widehat\pi}_{RoundWin}}{1-{\widehat\pi}_{RoundWin}})= 0.2702 - 1.308*10^{-6}(VotesLastRound)$$
+We found no evidence that number of votes in the previous round (votes_last_round) is associated with winning the current round (RoundWinBinary). The z-statistic, for the variable votes_last_round, small (-0.125) and p-value was large (p=0.900) relative to their critical values (z=1.96, p<0.05).
+
+
+
+
 
 ## Discussion
 When exploring our first hypothesis : Hypothesis 1: angle facing camera increases likelihood of success, we have found no evidence of a statistically significant relationship between the response and predictor. 
